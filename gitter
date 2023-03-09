@@ -5,7 +5,7 @@
 inputArg=$@
 
 echo -e '\ngitter: Adding all'
-git add .
+git add -v  .
 
 echo -e '\ngitter: Committing'
 git commit -m  $inputArg
