@@ -46,23 +46,24 @@ _printf, now that we know all specifiers are valid, and we have allocated memory
 
 - save the output string's address we got from malloc'd function, as a variable
 
-- function that while(input string [index])
+- function that
+		while(input string [index])
 
-	if (input string [index] is not % or \)
+			if (input string [index] is not % or \)
 
-		_putchar
+				_putchar
 
-		move to next character
-	else
+				move to next character
+			else
 
-		if (there is a character after it)
+				if (there is a character after it)
 
 
-			send current and next character to special character handler
+					send current and next character to special character handler
 
-		else [if this triggers, that means it just ended on a % or \, and we cna print it normally]
+				else [if this triggers, that means it just ended on a % or \, and we cna print it normally]
 
-			_putchar
+					_putchar
 
 - special character handler (char %||\, char nextCharacter, specifierCount[shared with above funciton via pointer; which specifier we are on, like first, second, etc])
 
