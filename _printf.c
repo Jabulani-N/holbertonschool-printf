@@ -17,8 +17,13 @@
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	char input = *format;
-	int argCount = spec_ctr(&input);
+	char input;
+	/*
+	 *we can get an editible version of the input by
+	 * malloc the length of format(found by a separate strlen function)
+	 * and then fill it with the contents of format
+	 */
+	int argCount = spec_ctr(format);
 	printf("_printf recieved an argument count of %i\n ", argCount);
 	/*
 	 * if this is negative there was an error and we shoudl abort
@@ -26,5 +31,6 @@ int _printf(const char *format, ...)
 	 */
 
 	(void) ap;
+	(void) input;
 	return (99);
 }

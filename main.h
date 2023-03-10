@@ -4,7 +4,7 @@ int _printf(const char *format, ...);
 int spec_ctr(const char *stringIn);
 int _putchar(char c);
 
-#define NEXTUP stringIn[index + 1] ==
+#define NEXTUP stringIn[magicalIndex + 1] ==
 
 #endif
 
