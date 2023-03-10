@@ -46,7 +46,10 @@ _printf, now that we know all specifiers are valid, and we have allocated memory
 
 - save the output string's address we got from malloc'd function, as a variable
 
-- function that
+- function that creates a structure SPECIFIER that holds both format specfier and text that goes there
+
+- - if format is a number, it'll need to convert that numbet to string
+
 		while(input string [index])
 
 			if (input string [index] is not % or \)
