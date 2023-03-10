@@ -16,9 +16,15 @@
 
 int _printf(const char *format, ...)
 {
-	int argCount = spec_ctr(*format), printf("we recieved an argument count of %i\n ", argCount);
+	va_list ap;
+	char input = *format;
+	int argCount = spec_ctr(&input);
+	printf("_printf recieved an argument count of %i\n ", argCount);
 	/*
 	 * if this is negative there was an error and we shoudl abort
 	 *	therefore keep it signed
 	 */
+
+	(void) ap;
+	return (99);
 }
