@@ -29,7 +29,11 @@ let's start with
 
 now we want to send the "else" to a function that handles special characters
 
-we'll send *format (the current character,) *(format + 1) (the next character, and ap (current argument. automatically incriments)
+we'll send *format (the current character,) *(format + 1) (the next character, address or pointer to current count of printed characters (so it can add) and argList (current argument. automatically incriments)
+
+- it needs both current and next char so it can differentiate between / and %
+
+- pointer is so we can edit the same incriment variable across the two functions
 
 
 
