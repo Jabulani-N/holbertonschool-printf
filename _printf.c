@@ -1,9 +1,10 @@
 
 
 /**
- *
  * _printf - prints f(ormatted text)
- *
+ * @format: the input text that will be printed.
+ *	includes specifier
+ * Return: number of characters printed
  */
 
 
@@ -24,6 +25,7 @@ int _printf(const char *format, ...)
 	 * and then fill it with the contents of format
 	 */
 	int argCount = spec_ctr(format);
+
 	printf("_printf recieved an argument count of %i\n ", argCount);
 	/*
 	 * if this is negative there was an error and we shoudl abort
