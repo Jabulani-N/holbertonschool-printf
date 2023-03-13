@@ -1,5 +1,14 @@
+
 #ifndef main_h
 #define main_h
+
+#include <string.h>
+#include <stdio.h>
+#include <limits.h>
+#include <stdlib.h>
+#include <stdarg.h>
+#include <unistd.h>
+
 int _printf(const char *format, ...);
 int spec_ctr(const char *stringIn);
 int _putchar(char c);

@@ -11,25 +11,27 @@ we'll use it by declaring it early.
 - then malloc the space needed once we've counted the number of specifiers
 
 
-#Structure created! Good job~~~♪
+# Structure created! Good job~~~♪
 
 We can work on the sorting function now.
 
-It'll recieve as argument the input text and one variable's contents (use variatic to allow any format)
+we'll need a pointable variable that keeps out position, or we'll need to be able to *format++ to change positions
 
-with these two, populate the structure first. 
+let's start with 
 
-- chose which field to populate based on first case of %[disc] that does not have a %/\ in front of it
+			while (*format)
+				if (*format is a normal character, putchar)
 
-- - it's not that simple.
 
-- - - %%%d needs to replace with decimal
+---
 
-- - - %%d does not.
+# basic text is handled. excellent work.
 
-- - - \%\\%\%d is an invalid input because of %\.
+now we want to send the "else" to a function that handles special characters
 
-then, replace the first case of a specifier with the variatic contents
+we'll send *format (the current character,) *(format + 1) (the next character, and ap (current argument. automatically incriments)
+
+
 
 
 
