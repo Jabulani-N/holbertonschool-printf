@@ -18,8 +18,8 @@ int spec_ctr(const char *stringIn)
 {
 	int counted = 0, strlen = 0, magicalIndex = 0;
 
-	printf("spec_ctr recieved input string %s", stringIn);
-	printf("spec_ctr is about to access the while loop\n");
+	/*printf("spec_ctr recieved input string %s", stringIn);*/
+	/*printf("spec_ctr is about to access the while loop\n");*/
 	while (stringIn[magicalIndex] != '\0')
 	{ /*printf("spec_ctr ran while loop measuring length %i times\n", (strlen + 1));*/
 		/*printf("the current string value is %c(char)\n", stringIn[magicalIndex]);*/

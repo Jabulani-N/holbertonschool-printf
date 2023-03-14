@@ -98,9 +98,12 @@ return (charsPrinted);
 */
 int spcharChar (const char *format, char inputChar)
 {
+	/*printf("spcharChar was triggered\n");*/
 	if (!inputChar)
+	{
+		/*printf("aborted via null inputChar\n");*/
 		return (-1);
-
+	}
 	_putchar(inputChar);
 	format++;
 	return (1);
@@ -110,8 +113,12 @@ int spcharStr (const char *format, char *inputString)
 {
 	int prinSubCount = 0;
 
-	if (!inputString)
+	/*printf("spcharStr was triggered\n");*/
+	if (!*inputString)
+	{
+		/*printf("aborted via null inputStrin\n");*/
 		return (-1);
+	}
 
 	while (*inputString)
 	{

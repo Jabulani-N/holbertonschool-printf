@@ -25,6 +25,7 @@ let's start with
 
 ---
 
+
 # basic text is handled. excellent work.
 
 now we want to send the "else" to a function that handles special characters
@@ -37,7 +38,14 @@ we'll send *format (the current character,) *(format + 1) (the next character, a
 
 - it'll return the number of characters printed, so we can directly add it in _printf.c
 
+# mostly done
 
+right now, it's not triggering the right special cahracter handlers
 
+- check _printf and make sure it sends to the correct funcitons
+
+# I fixed it!
+
+it was using "not percent || not slash" when it needed to be "not percent and not slash" to say the "while neither" I needed.
 
 

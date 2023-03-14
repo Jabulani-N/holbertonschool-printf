@@ -37,8 +37,9 @@ va_start (argList, format);
 
 	while (*format)
 	{
-		if (*format != '\\' || *format != '%')
+		if (*format != '\\' && *format != '%')
 		{ /*normal character*/
+			/*printf("printing normal character: %c\n", *format);*/
 			_putchar(*format), prinCount++;
 		}
 		else
@@ -47,19 +48,24 @@ va_start (argList, format);
 			{
 				case '\\':/*this is a single slash*/
 					spchar(format);/*spchar can handle things like newlines*/
+					format++;
 					break;
 			case '%':
+					/*printf("we triggered the percent sign switch set\n");*/
 				switch (*(format + 1))
 				{
 					case '%':/*double percent*/
 						prinCount += spchar(format);
+						format++;
 						break;
 					case 'c':
-						prinCount += spcharChar(format, va_arg (argList, int));
+						prinCount += spcharChar(format, va_arg(argList, int));
 						/*this char gets promoted to int when passed, but it si still a char coordinate*/
+						format++;
 						break;
 					case 's':
-						prinCount += spcharStr (format, va_arg (argList, char*));
+						prinCount += spcharStr(format, va_arg(argList, char*));
+						format++;
 						break;
 				}
 				break;
