@@ -16,7 +16,7 @@ int spchar(const char *format, ...);
 int spcharStr(const char *format, char *inputString);
 int spcharChar(const char *format, char inputChar);
 
-#define NEXTUP stringIn[magicalIndex + 1] ==
+/*#define NEXTUP stringIn[magicalIndex + 1] ==*/
 
 /**
  *struct _specifier - holds specifier details

@@ -34,9 +34,9 @@ int spec_ctr(const char *stringIn)
 		if (stringIn[magicalIndex] == '%')
 		{/*see if next character makes it a specifier*/
 			if (stringIn[magicalIndex + 1] == 'd' ||
-					NEXTUP 'i' ||/*make macro STRNOW for this if to the ==*/
-					NEXTUP 's' ||
-					NEXTUP 'c')
+					stringIn[magicalIndex + 1] == 'i' ||/*macro NEXTUP for up to the ==*/
+					stringIn[magicalIndex + 1] == 's' ||
+					stringIn[magicalIndex + 1] == 'c')
 				counted++;
 		}
 	}
