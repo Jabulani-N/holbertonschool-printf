@@ -73,8 +73,8 @@ va_start (argList, format);
 		}
 		format++;/*move to next charcter slot*/
 	}
-
-	/*(void) argList;*/
+	_putchar('\0');/*(void) argList;*/
 	va_end (argList);
-	return (99);
+	return (prinCount);
 }
+
