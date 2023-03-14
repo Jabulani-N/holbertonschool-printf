@@ -12,6 +12,9 @@
 int _printf(const char *format, ...);
 int spec_ctr(const char *stringIn);
 int _putchar(char c);
+int spchar(const char *format, ... );
+int spcharStr (const char *format, char *inputString);
+int spcharChar (const char *format, char inputChar);
 
 #define NEXTUP stringIn[magicalIndex + 1] ==
 
@@ -25,16 +28,16 @@ int _putchar(char c);
  *
  */
 
-struct specifier
+struct _specifier
 {
-	char *specType, inputString, inputChar;
+	char specType, inputString, inputChar;
 	float inputFloat;
 	int inputInt;
 	/* this holds specifier used, replacement text/numbers */
 
 };
 
-typedef struct specifier spec;
+typedef struct _specifier spec;
 /*this lets us shortcut declaratons of struct */
 /*dog_t *new_dog(char *name, float age, char *owner);*/
 /*spec nameGoesHere(char *specType, char *inputString, char *inputChar, float inputFloat, int inputInt);*/

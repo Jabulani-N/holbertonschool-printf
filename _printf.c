@@ -19,12 +19,16 @@
 int _printf(const char *format, ...)
 {
 	va_list argList;
+	int prinCount = 0, argCount;
+	/*return prinCount at the end, dood*/
 	/*
 	 *we can get an editible version of the input by
 	 * malloc the length of format(found by a separate strlen function)
 	 * and then fill it with the contents of format
 	 */
-
+argCount = spec_ctr(format);
+(void) argCount;
+va_start (argList, format);
 
 	/*
 	 * if this is negative there was an error and we shoudl abort
@@ -35,9 +39,34 @@ int _printf(const char *format, ...)
 	{
 		if (*format != '\\' || *format != '%')
 		{ /*normal character*/
-			_putchar(*format);
+			_putchar(*format), prinCount++;
 		}
-		format++;
+		else
+		{
+			switch (*format)/*find if its slash or percent*/
+			{
+				case '\\':/*this is a single slash*/
+					spchar(format);/*spchar can handle things like newlines*/
+					break;
+			case '%':
+				switch (*(format + 1))
+				{
+					case '%':/*double percent*/
+						prinCount += spchar(format);
+						break;
+					case 'c':
+						prinCount += spcharChar(format, va_arg (argList, int));
+						/*this char gets promoted to int when passed, but it si still a char coordinate*/
+						break;
+					case 's':
+						prinCount += spcharStr (format, va_arg (argList, char*));
+						break;
+				}
+				break;
+
+			}
+		}
+		format++;/*move to next charcter slot*/
 	}
 
 	/*(void) argList;*/

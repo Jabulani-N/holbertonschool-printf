@@ -33,7 +33,9 @@ we'll send *format (the current character,) *(format + 1) (the next character, a
 
 - it needs both current and next char so it can differentiate between / and %
 
-- pointer is so we can edit the same incriment variable across the two functions
+- - we could just use *(inputterFormat + 1) to move to the next character
+
+- it'll return the number of characters printed, so we can directly add it in _printf.c
 
 
 
