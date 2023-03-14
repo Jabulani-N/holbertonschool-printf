@@ -50,4 +50,9 @@ it was using "not percent || not slash" when it needed to be "not percent and no
 
 now, let's have it handle slash commands
 
+# we may not have to
+
+our next move should be to betty comply
+
+create a macro for some bigger chunks of code, if we have waaay too many lines
 
