@@ -56,3 +56,12 @@ our next move should be to betty comply
 
 create a macro for some bigger chunks of code, if we have waaay too many lines
 
+# Betty satisfied (for now)
+
+catch edge string cases
+
+- getting null
+
+- ending on \/%
+
+
