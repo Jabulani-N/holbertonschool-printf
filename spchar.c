@@ -33,8 +33,8 @@
  */
 
 
-/*we'll do the sorting in _printf, since spchar can't handle the variadic part*/
-/*this one can handle the percent sign operations*/
+/*sorting in _printf, since spchar can't handle the variadic part*/
+/*this one handles slash operations*/
 int spchar(const char *format, ... )
 {
 	va_list varInput;
@@ -51,30 +51,20 @@ int spchar(const char *format, ... )
 
 	va_start (varInput, format);/*the second argument here is meant to be the type of the next arg*/
 	/*due to this, we can jsut make a different function for each type, that way we know the type*/
-
-	switch (*format)/*find if its slash or percent*/
-	{
-		case '\\':/*this is a single slash*/
-			switch (*(format + 1))
+	/*started with a slash*/
+	switch (*(format + 1))
 			{
 				case '\\':/*followed by another single slash*/
 					input->specType = 'c', input->inputChar = '\\', format++;
 					break;
-			}
-			break;
-		case '%':
-			switch (*(format + 1))
-			{
-				case '%':
-					input->specType = 'c', input->inputChar = '%', format++;
+				case 'n':
+					input->specType = 'c', input->inputChar = '\n', format++;
+					break;
+				case 't':
+					input->specType = 'c', input->inputChar = '\t', format++;
 					break;
 			}
-			break;
-
-	}
-
 	/*after filling the relevant spot in input, putchar through all slots*/
-
 	switch (input->specType)
 	{
 		case 'c':

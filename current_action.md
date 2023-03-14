@@ -48,4 +48,6 @@ right now, it's not triggering the right special cahracter handlers
 
 it was using "not percent || not slash" when it needed to be "not percent and not slash" to say the "while neither" I needed.
 
+now, let's have it handle slash commands
+
 

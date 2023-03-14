@@ -55,8 +55,7 @@ va_start (argList, format);
 				switch (*(format + 1))
 				{
 					case '%':/*double percent*/
-						prinCount += spchar(format);
-						format++;
+						_putchar('%'), format++;
 						break;
 					case 'c':
 						prinCount += spcharChar(format, va_arg(argList, int));
