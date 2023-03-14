@@ -16,7 +16,7 @@ typedef struct print
 } specifier;
 
 int _putchar(char c);
-int _printf(const char *format, ...)
+int _printf(const char *format, ...);
 int print_char( va_list c);
 int print_int(va_list i);
 int print_string(va_list s);
