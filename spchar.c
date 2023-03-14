@@ -5,8 +5,7 @@
 
 /**
  * spchar - writes the special cases argument to standar out via putchar
- * @first: either % or \. determines the next output
- * @second: the second half of specifier. can be [disc] or %/\
+ * @format: input given to _printf
  * Return: On success the number of printed characters
  * - for the base function to add to it's counter variable.
  * On error, -1 is returned, and errno is set appropriately.
@@ -22,7 +21,8 @@
  * then we'll fill the appropriate slot with the 1 variadic arg
  *
  * finally, we'll print all the contents of the structure in sequeence(?)
- * the only thing that will get sent is the one with actual content: the variadic argument
+ * the only thing that will get sent is
+ *	the one with actual content: the variadic argument
  *
  */
 
@@ -35,22 +35,21 @@
 
 /*sorting in _printf, since spchar can't handle the variadic part*/
 /*this one handles slash operations*/
-int spchar(const char *format, ... )
+int spchar(const char *format, ...)
 {
 	va_list varInput;
 	int charsPrinted = 0;
 	/*get variadic list so we can judge the variadic input in the switch*/
 	spec *input;
-	
-	input = malloc (sizeof(spec));
+
+	input = malloc(sizeof(spec));
 	if (input == NULL)
 	{
 		printf("structure was null because we didn't start it with values\n");
 		return (-1);
 	}
 
-	va_start (varInput, format);/*the second argument here is meant to be the type of the next arg*/
-	/*due to this, we can jsut make a different function for each type, that way we know the type*/
+	va_start(varInput, format);/*second argument is last named argument*/
 	/*started with a slash*/
 	switch (*(format + 1))
 			{
@@ -71,7 +70,7 @@ int spchar(const char *format, ... )
 			_putchar(input->inputChar), charsPrinted++;
 			break;
 	}
-va_end (varInput);
+va_end(varInput);
 return (charsPrinted);
 }
 
@@ -86,7 +85,14 @@ return (charsPrinted);
 *{
 *}
 */
-int spcharChar (const char *format, char inputChar)
+
+/**
+ * spcharChar - _putchar the input and move format to next
+ * @format: format from _printf
+ * @inputChar: char to putchar
+ * Return: 1 on success
+ */
+int spcharChar(const char *format, char inputChar)
 {
 	/*printf("spcharChar was triggered\n");*/
 	if (!inputChar)
@@ -98,8 +104,13 @@ int spcharChar (const char *format, char inputChar)
 	format++;
 	return (1);
 }
-
-int spcharStr (const char *format, char *inputString)
+/**
+ * spcharStr - _putchar through the input. and move format to next
+ * @format: format from _printf
+ * @inputString: variadic arg from _printf
+ * Return: how many chars got printed
+ */
+int spcharStr(const char *format, char *inputString)
 {
 	int prinSubCount = 0;
 
@@ -123,8 +134,8 @@ return (prinSubCount);
 /*
  *				potential traps
  * make sure all specifiers do a single format++
- * 	this is so we move from /d's '/' to wahtever's past it's 'd'
+ *	this is so we move from /d's '/' to wahtever's past it's 'd'
  *
- * 	in order to know the input type, well need ot have the base spcahr function call dedicated functions for each type
  */
+
 

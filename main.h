@@ -12,14 +12,14 @@
 int _printf(const char *format, ...);
 int spec_ctr(const char *stringIn);
 int _putchar(char c);
-int spchar(const char *format, ... );
-int spcharStr (const char *format, char *inputString);
-int spcharChar (const char *format, char inputChar);
+int spchar(const char *format, ...);
+int spcharStr(const char *format, char *inputString);
+int spcharChar(const char *format, char inputChar);
 
-#define NEXTUP stringIn[magicalIndex + 1] ==
+#define NEXTUP (stringIn[magicalIndex + 1] ==)
 
 /**
- *struct specifier - holds specifier details
+ *struct _specifier - holds specifier details
  *@specType: %i, %s, \n, \t, and so on
  *@inputString: if specType is %s, \n, \t, etc, we'll populate this
  *@inputChar: if specType is %c, we'll be populating this
@@ -39,8 +39,6 @@ struct _specifier
 
 typedef struct _specifier spec;
 /*this lets us shortcut declaratons of struct */
-/*dog_t *new_dog(char *name, float age, char *owner);*/
-/*spec nameGoesHere(char *specType, char *inputString, char *inputChar, float inputFloat, int inputInt);*/
 
 #endif
 
