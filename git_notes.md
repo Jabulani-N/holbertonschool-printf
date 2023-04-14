@@ -8,7 +8,7 @@ git help function
 
 - - these can be used as "function"
 
-#Merging
+# Merging
 
 git merge branchName
 
